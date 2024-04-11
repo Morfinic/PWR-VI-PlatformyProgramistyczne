@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="PWR_VI_PodPro.View.UserControls.MenuBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PWR_VI_PodPro.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="585" d:DesignWidth="220"
+             Background="Black" >
+    <Grid>
+        <Rectangle 
+            Fill="MediumPurple"/>
+        <StackPanel
+            Orientation="Vertical">
+            <RadioButton
+                Content="Home" 
+                Style="{StaticResource rbMenu}"/>
+            <RadioButton
+                Content="Browser" 
+                Style="{StaticResource rbMenu}"/>
+            <RadioButton
+                Content="Filters" 
+                Style="{StaticResource rbMenu}"/>
+            <RadioButton
+                Content="Filter Editor" 
+                Style="{StaticResource rbMenu}"/>
+            <RadioButton
+                Content="Settings" 
+                Style="{StaticResource rbMenu}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
