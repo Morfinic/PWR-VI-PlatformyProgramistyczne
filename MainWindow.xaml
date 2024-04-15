@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PWR_VI_PodPro"
-        xmlns:UserControls="clr-namespace:PWR_VI_PodPro.View.UserControls"
+        xmlns:ViewComponents="clr-namespace:PWR_VI_PodPro.View.ViewComponents"
+        xmlns:ViewModel="clr-namespace:PWR_VI_PodPro.View.ViewModel"
         mc:Ignorable="d"
         Title="VG Price Tracker" Height="650" Width="1100"
         ResizeMode="NoResize"
@@ -17,6 +18,11 @@
             CaptionHeight="0"
             CornerRadius="0" />
     </WindowChrome.WindowChrome>
+
+    <Window.DataContext>
+        <ViewModel:MainViewModel />
+    </Window.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*" />
@@ -38,14 +44,20 @@
             Grid.ColumnSpan="2"
             Grid.RowSpan="4" />
 
-        <UserControls:ProgramBar 
+        <ViewComponents:ProgramBar 
             Grid.ColumnSpan="2" />
 
-        <UserControls:MenuBar
+        <ViewComponents:MenuBar
             Grid.Row="1"
             Grid.Column="0" />
 
-        <UserControls:InfoBar
+        <ContentControl 
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="0" 
+            Content="{Binding CurrentView}"/>
+
+        <ViewComponents:InfoBar
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="2" />

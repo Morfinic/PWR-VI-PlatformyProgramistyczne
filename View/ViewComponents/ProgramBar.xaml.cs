@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace PWR_VI_PodPro.View.UserControls
+namespace PWR_VI_PodPro.View.ViewComponents
 {
     public partial class ProgramBar : UserControl
     {
