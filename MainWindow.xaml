@@ -31,7 +31,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.04*" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="0.06*" />
+            <RowDefinition Height="0.04*" />
         </Grid.RowDefinitions>
 
         <Grid.OpacityMask>

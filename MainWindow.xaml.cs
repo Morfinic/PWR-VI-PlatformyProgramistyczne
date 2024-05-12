@@ -1,13 +1,5 @@
-﻿using System.Text;
+﻿using PWR_VI_PodPro.Core;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PWR_VI_PodPro
 {
@@ -19,6 +11,7 @@ namespace PWR_VI_PodPro
         public MainWindow()
         {
             InitializeComponent();
+            ApiController.InitializeClient();
         }
     }
 }
