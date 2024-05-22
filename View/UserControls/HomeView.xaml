@@ -4,13 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PWR_VI_PodPro.View.UserControls"
+             xmlns:Components="clr-namespace:PWR_VI_PodPro.View.Components"
              mc:Ignorable="d" 
              d:DesignHeight="585" d:DesignWidth="880"
              Background="AntiqueWhite">
     <Grid>
-        <TextBlock
-            Text="1"
-            FontSize="126"
-            Foreground="black"/>
+        <StackPanel
+            Name="DailyDealsSP"/>
     </Grid>
 </UserControl>
