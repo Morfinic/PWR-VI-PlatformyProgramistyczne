@@ -12,7 +12,7 @@ namespace PWR_VI_PodPro.View.UserControls
         {
             InitializeComponent();
 
-            DailyDealsSP.Children.Add(new Deal());
+            DailyDealsSP.Children.Add(new TextBlock() { Text="asd" });
         }
     }
 }

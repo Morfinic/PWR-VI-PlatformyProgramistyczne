@@ -5,22 +5,171 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PWR_VI_PodPro.View.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="800">
+             d:DesignHeight="150" d:DesignWidth="880"
+             Background="MediumPurple">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="75" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0.3*" />
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="220" />
         </Grid.ColumnDefinitions>
 
-        <TextBox
-            Name="Title"
+        <Image 
             Grid.Row="0"
-            Grid.Column="0"/>
+            Grid.Column="0"
+            Name="ThumbImg" />
+        <TextBlock 
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            Name="TitleTb" 
+            FontSize="24"
+            VerticalAlignment="Center"/>
+
+        <StackPanel
+            Orientation="Vertical"
+            Grid.Column="0"
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+            <Border 
+                    BorderBrush="Black" 
+                    BorderThickness="1" 
+                    CornerRadius="5"
+                    Height="20"
+                    Margin="0,2,0,2" 
+                    Background="Black">
+                <TextBlock 
+                        Name="normalPriceTb" 
+                        FontSize="12" 
+                        Text="99"
+                        Foreground="White"
+                    Margin="5,0,5,0"
+                        VerticalAlignment="Center"
+                        TextAlignment="Center" />
+            </Border>
+            <Border 
+                    BorderBrush="Black" 
+                    BorderThickness="1" 
+                    CornerRadius="5"
+                    Height="20" 
+                    Background="Black">
+                    <TextBlock 
+                        Name="salePriceTb" 
+                        FontSize="12" 
+                        Text="99"
+                        Foreground="White"
+                        VerticalAlignment="Center"
+                        TextAlignment="Center" />
+                </Border>
+                <Border 
+                    BorderBrush="Black" 
+                    BorderThickness="1" 
+                    CornerRadius="5"
+                    Height="20"
+                    Margin="0,2,0,2" 
+                    Background="Black">
+                    <TextBlock 
+                        Name="savingsTb" 
+                        FontSize="12" 
+                        Text="99"
+                        Foreground="White"
+                        VerticalAlignment="Center"
+                        TextAlignment="Center" />
+                </Border>
+        </StackPanel>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Column="1"
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+            <Border 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                CornerRadius="5"
+                Width="65"
+                Height="65"
+                Margin="0,0,15,0" 
+                Background="Black">
+                <TextBlock 
+                    Name="MetacriticScoreTb" 
+                    FontSize="45" 
+                    Text="99"
+                    Foreground="White"
+                    VerticalAlignment="Center"
+                    TextAlignment="Center" />
+            </Border>
+
+            <Button Name="MetacriticLink" Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image 
+                            Source="../../src/images/Metacritic_M.png" 
+                            Height="65"
+                            Width="65"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Column="2"
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical">
+                <Border 
+                   BorderBrush="Black" 
+                   BorderThickness="1" 
+                   CornerRadius="5"
+                   Height="30"
+                   Padding="4"
+                   Background="Black"
+                   Margin="0,0,0,4">
+                    <TextBlock 
+                       Name="SteamRatingTextTb" 
+                       FontSize="10" 
+                       Text="Very Positive"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center" />
+                </Border>
+                <Border 
+                   BorderBrush="Black" 
+                   BorderThickness="1" 
+                   CornerRadius="5"
+                   Height="30"
+                   Padding="4"
+                   Background="Black">
+                    <TextBlock 
+                       Name="SteamRatingPercentTb" 
+                       FontSize="14" 
+                       Text="Positive: "
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center" />
+                </Border>
+            </StackPanel>
+
+            <Button Name="SteamLink" Cursor="Hand" Margin="10,0,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image 
+                            Source="../../src/images/steam_icon.png" 
+                            Height="65"
+                            Width="65"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </UserControl>

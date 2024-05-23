@@ -11,8 +11,8 @@ namespace PWR_VI_PodPro.View.UserControls
     /// </summary>
     public partial class BrowserView : UserControl
     {
-        private ObservableCollection<TextBox> _deals = new();
-        public ObservableCollection<TextBox> Deals
+        private ObservableCollection<Deal> _deals = new();
+        public ObservableCollection<Deal> Deals
         {
             get { return _deals; }
             set { _deals = value; }
@@ -30,19 +30,20 @@ namespace PWR_VI_PodPro.View.UserControls
 
             foreach (DealModel obj in ll)
             {
-                TextBox tb = new()
-                {
-                    Text = $"Title: {obj.title}, " +
-                           $"Price: {obj.normalPrice}, " +
-                           $"DiscountedTo: {obj.salePrice}, " +
-                           $"Savings%: {obj.savings}, " +
-                           $"SteamRating%: {obj.steamRatingPercent}, " +
-                           $"SteamRate: {obj.steamRatingText}"
-                };
+                //TextBox tb = new()
+                //{
+                //    Text = $"Title: {obj.title}, " +
+                //           $"Price: {obj.normalPrice}, " +
+                //           $"DiscountedTo: {obj.salePrice}, " +
+                //           $"Savings%: {obj.savings}, " +
+                //           $"SteamRating%: {obj.steamRatingPercent}, " +
+                //           $"SteamRate: {obj.steamRatingText}"
+                //};
 
-                new Deal(obj);
+                Deal newDeal = new(obj);
+                _deals.Add(newDeal);
 
-                _deals.Add(tb);
+                //_deals.Add(tb);
             }
         }
 

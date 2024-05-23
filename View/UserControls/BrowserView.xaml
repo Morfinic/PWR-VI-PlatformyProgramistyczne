@@ -12,8 +12,9 @@
     <Grid>
         <ListBox
             Background="Transparent"
-            Padding="5"
+            Padding="2"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.CanContentScroll="False"
             ItemsSource="{Binding Deals}">
         </ListBox>
     </Grid>
