@@ -24,8 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DeviceId" Version="6.6.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,9 +36,5 @@
     <Resource Include="src\images\appImg.png" />
     <Resource Include="src\images\Metacritic_M.png" />
     <Resource Include="src\images\steam_icon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Core\MongoDB\Models\" />
   </ItemGroup>
 </Project>

@@ -7,9 +7,27 @@
              xmlns:Components="clr-namespace:PWR_VI_PodPro.View.Components"
              mc:Ignorable="d" 
              d:DesignHeight="585" d:DesignWidth="880"
-             Background="AntiqueWhite">
+             Background="AntiqueWhite"
+             Loaded="UserControl_Loaded"
+             Unloaded="UserControl_Unloaded">
     <Grid>
-        <StackPanel
-            Name="DailyDealsSP"/>
+        <StackPanel>
+            <TextBlock
+                Text="Today's discounts, chosen best for you!"
+                HorizontalAlignment="Center"
+                FontSize="32"
+                FontWeight="Bold"
+                Margin="10"/>
+
+            <StackPanel
+                Name="DailyDealsSP"
+                Margin="10">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Components:Deal}">
+                        <Setter Property="Margin" Value="5"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -4,13 +4,38 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PWR_VI_PodPro.View.UserControls" 
+             xmlns:Components="clr-namespace:PWR_VI_PodPro.View.Components"
              mc:Ignorable="d" 
              d:DesignHeight="585" d:DesignWidth="880"
              Background="DarkSeaGreen"
              Loaded="UserControl_Loaded"
              Unloaded="UserControl_Unloaded">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Horizontal"
+            HorizontalAlignment="Left">
+            <Components:SearchBox 
+                Grid.Row="0"
+                Margin="10,5,0,0"
+                Width="150"
+                x:Name="SearchBox"/>
+            <Button
+                Grid.Row="0"
+                Margin="5,5,0,0"
+                Width="50"
+                Content="Search"
+                Name="SearchBtn"
+                Click="SearchBtn_Click"/>
+        </StackPanel>
+
         <ListBox
+            Grid.Row="1"
             Background="Transparent"
             Padding="2"
             ScrollViewer.VerticalScrollBarVisibility="Auto"

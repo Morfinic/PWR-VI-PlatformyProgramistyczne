@@ -26,30 +26,34 @@ namespace PWR_VI_PodPro.View.UserControls
 
         private async void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            var ll = await DealController.Get3A();
+            var ll = await DealController.GetDeals();
 
             foreach (DealModel obj in ll)
             {
-                //TextBox tb = new()
-                //{
-                //    Text = $"Title: {obj.title}, " +
-                //           $"Price: {obj.normalPrice}, " +
-                //           $"DiscountedTo: {obj.salePrice}, " +
-                //           $"Savings%: {obj.savings}, " +
-                //           $"SteamRating%: {obj.steamRatingPercent}, " +
-                //           $"SteamRate: {obj.steamRatingText}"
-                //};
-
                 Deal newDeal = new(obj);
                 _deals.Add(newDeal);
-
-                //_deals.Add(tb);
             }
         }
 
         private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e)
         {
             _deals.Clear();
+        }
+
+        private async void SearchBtn_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            var SearchName = SearchBox.SearchInput.Text;
+            _deals.Clear();
+
+            var ll = await DealController.GetDeals(SearchName);
+
+            foreach (DealModel obj in ll)
+            {
+                Deal newDeal = new(obj);
+                _deals.Add(newDeal);
+            }
+
+            SearchBox.SearchInput.Text = "";
         }
     }
 }

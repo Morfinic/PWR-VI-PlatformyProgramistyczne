@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PWR_VI_PodPro.Core.MongoDB.DB;
+using PWR_VI_PodPro.Core;
+using PWR_VI_PodPro.View.Components;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using PWR_VI_PodPro.View.ViewComponents;
 
 namespace PWR_VI_PodPro.View.UserControls
 {
@@ -23,6 +15,24 @@ namespace PWR_VI_PodPro.View.UserControls
         public SettingsView()
         {
             InitializeComponent();
+        }
+
+        private void UpdateEmail_Click(object sender, RoutedEventArgs e)
+        {
+            EmailInputWindow inputWindow = new("Update email:")
+            {
+                Owner = Application.Current.MainWindow
+            };
+            Application.Current.MainWindow.Effect = new System.Windows.Media.Effects.BlurEffect();
+            inputWindow.ShowDialog();
+            Application.Current.MainWindow.Effect = null;
+
+            if (inputWindow.Success)
+            {
+                LoggedUser.Email = inputWindow.Email;
+                DB.UpdateUser();
+                EmailNotif.Text = "Email updated!";
+            }
         }
     }
 }

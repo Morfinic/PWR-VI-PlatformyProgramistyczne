@@ -11,7 +11,8 @@
         ResizeMode="NoResize"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="Transparent" >
+        Background="Transparent" 
+        Loaded="Window_Loaded">
     <WindowChrome.WindowChrome>
         <WindowChrome 
             GlassFrameThickness="0" 
