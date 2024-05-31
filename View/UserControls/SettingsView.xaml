@@ -9,15 +9,15 @@
              Background="khaki">
     <Grid>
         <StackPanel
-            Orientation="Vertical"
-            HorizontalAlignment="Left">
-            <TextBlock
-                Text="Settings"
-                FontSize="36"
-                FontWeight="Bold"
-                Margin="10"/>
+            Orientation="Horizontal">
             <StackPanel
-                Orientation="Horizontal">
+                Orientation="Vertical"
+                HorizontalAlignment="Left">
+                <TextBlock
+                    Text="Settings"
+                    FontSize="36"
+                    FontWeight="Bold"
+                    Margin="10"/>
                 <Button
                     Name="UpdateEmail"
                     Content="Update email"
@@ -25,13 +25,27 @@
                     Height="50"
                     Margin="10"
                     Click="UpdateEmail_Click"/>
+
+                <Button
+                    Content="Manage alerts" 
+                    Name="ManAlertbtn"
+                    Width="100"
+                    Height="50"
+                    Margin="10"
+                    Click="ManAlertbtn_Click"/>
+            </StackPanel>
+            <StackPanel
+                Orientation="Vertical">
                 <TextBlock
-                    Name="EmailNotif"
-                    VerticalAlignment="Center"
-                    FontSize="24"
+                    Text="Message"
+                    FontSize="36"
+                    FontWeight="Bold"
+                    Margin="10"/>
+                <TextBlock
+                    Name="MessageTb"
+                    FontSize="36"
                     Margin="10"/>
             </StackPanel>
-
         </StackPanel>
     </Grid>
 </UserControl>

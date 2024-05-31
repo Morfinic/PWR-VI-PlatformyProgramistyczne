@@ -7,14 +7,14 @@ namespace PWR_VI_PodPro.View.ViewModel
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand BrowserViewCommand { get; set; }
         public RelayCommand FilterViewCommand { get; set; }
-        public RelayCommand FilterEditViewCommand { get; set; }
+        public RelayCommand LikesViewCommand { get; set; }
         public RelayCommand SettingsViewCommand { get; set; }
 
 
         public HomeViewModel HomeVM { get; set; }
         public BrowserViewModel BrowserVM { get; set; }
         public FilterViewModel FilterVM { get; set; }
-        public FilterEditorViewModel FilterEditVM { get; set; }
+        public LikesViewModel LikesVM { get; set; }
         public SettingsViewModel SettingsVM { get; set; }
 
 
@@ -35,7 +35,7 @@ namespace PWR_VI_PodPro.View.ViewModel
             HomeVM = new HomeViewModel();
             BrowserVM = new BrowserViewModel();
             FilterVM = new FilterViewModel();
-            FilterEditVM = new FilterEditorViewModel();
+            LikesVM = new LikesViewModel();
             SettingsVM = new SettingsViewModel();
 
             CurrentView = HomeVM;
@@ -55,9 +55,9 @@ namespace PWR_VI_PodPro.View.ViewModel
                 CurrentView = FilterVM;
             });
 
-            FilterEditViewCommand = new RelayCommand(o =>
+            LikesViewCommand = new RelayCommand(o =>
             {
-                CurrentView = FilterEditVM;
+                CurrentView = LikesVM;
             });
 
             SettingsViewCommand = new RelayCommand(o =>

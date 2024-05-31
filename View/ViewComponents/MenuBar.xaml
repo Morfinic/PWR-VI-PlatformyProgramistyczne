@@ -28,9 +28,9 @@
                 Style="{StaticResource rbMenu}"
                 Command="{Binding FilterViewCommand}"/>
             <RadioButton
-                Content="Filter Editor" 
+                Content="Watchlist" 
                 Style="{StaticResource rbMenu}"
-                Command="{Binding FilterEditViewCommand}"/>
+                Command="{Binding LikesViewCommand}"/>
             <RadioButton
                 Content="Settings" 
                 Style="{StaticResource rbMenu}"

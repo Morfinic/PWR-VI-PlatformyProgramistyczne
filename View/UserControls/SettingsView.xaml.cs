@@ -4,6 +4,7 @@ using PWR_VI_PodPro.View.Components;
 using System.Windows;
 using System.Windows.Controls;
 using PWR_VI_PodPro.View.ViewComponents;
+using PWR_VI_PodPro.Core.API.Calls;
 
 namespace PWR_VI_PodPro.View.UserControls
 {
@@ -31,8 +32,14 @@ namespace PWR_VI_PodPro.View.UserControls
             {
                 LoggedUser.Email = inputWindow.Email;
                 DB.UpdateUser();
-                EmailNotif.Text = "Email updated!";
+                MessageTb.Text = "Email updated!";
             }
+        }
+
+        private async void ManAlertbtn_Click(object sender, RoutedEventArgs e)
+        {
+            string res = await AlertController.SendManageEmail();
+            MessageTb.Text = res;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace PWR_VI_PodPro.View.UserControls
 
             foreach (DealModel obj in ll)
             {
-                Deal newDeal = new(obj);
+                Deal newDeal = new(obj, false);
                 DailyDealsSP.Children.Add(newDeal);
             }
         }

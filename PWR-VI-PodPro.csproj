@@ -13,7 +13,9 @@
 
   <ItemGroup>
     <None Remove="src\icons\closeIcon.png" />
+    <None Remove="src\icons\heart.png" />
     <None Remove="src\icons\minIcon.png" />
+    <None Remove="src\icons\warning.png" />
     <None Remove="src\images\appImg.png" />
     <None Remove="src\images\Metacritic_M.png" />
     <None Remove="src\images\steam_icon.png" />
@@ -32,7 +34,9 @@
 
   <ItemGroup>
     <Resource Include="src\icons\closeIcon.png" />
+    <Resource Include="src\icons\heart.png" />
     <Resource Include="src\icons\minIcon.png" />
+    <Resource Include="src\icons\warning.png" />
     <Resource Include="src\images\appImg.png" />
     <Resource Include="src\images\Metacritic_M.png" />
     <Resource Include="src\images\steam_icon.png" />
