@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PWR_VI_PodPro.View.Components"
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="880"
-             Background="MediumPurple">
+             Background="Beige">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75" />

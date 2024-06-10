@@ -11,6 +11,7 @@
         public string steamRatingText { get; set; }
         public string steamRatingPercent { get; set; }
         public string steamAppID { get; set; }
+        public string gameID { get; set; }
         public string thumb {  get; set; }
     }
 }

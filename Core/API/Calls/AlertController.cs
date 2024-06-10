@@ -21,5 +21,22 @@ namespace PWR_VI_PodPro.Core.API.Calls
                 }
             }
         }
+
+        public static async Task<bool> EditAlert(string gameID, string price)
+        {
+            string url = $"https://www.cheapshark.com/api/1.0/alerts?action=set&email={LoggedUser.Email}&gameID={gameID}&price={price}";
+
+            using (HttpResponseMessage res = await ApiController.ApiClient.GetAsync(url))
+            {
+                if (res.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

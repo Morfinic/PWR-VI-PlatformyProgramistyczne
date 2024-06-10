@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PWR_VI_PodPro.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="585" d:DesignWidth="880"
-             Background="Green"
+             Background="MediumPurple"
              Loaded="UserControl_Loaded"
              Unloaded="UserControl_Unloaded">
     <Grid>

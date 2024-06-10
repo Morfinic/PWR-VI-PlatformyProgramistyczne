@@ -45,7 +45,8 @@ namespace PWR_VI_PodPro.View.UserControls
             var SearchName = SearchBox.SearchInput.Text;
             _deals.Clear();
 
-            var ll = await DealController.GetDeals(SearchName);
+            string onSale = (bool)ShowOnlyOnSaleChkbx.IsChecked ? "1" : "0";
+            var ll = await DealController.GetDeals(SearchName, onSale);
 
             foreach (DealModel obj in ll)
             {

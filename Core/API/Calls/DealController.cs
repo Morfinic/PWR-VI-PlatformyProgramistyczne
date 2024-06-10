@@ -27,9 +27,9 @@ namespace PWR_VI_PodPro.Core.API.Calls
             }
         }
 
-        public static async Task<List<DealModel>> GetDeals(string SearchName = "")
+        public static async Task<List<DealModel>> GetDeals(string SearchName = "", string onSale = "1")
         {
-            string url = $"https://www.cheapshark.com/api/1.0/deals?storeID=1&title={SearchName}";
+            string url = $"https://www.cheapshark.com/api/1.0/deals?storeID=1&title={SearchName}&onSale={onSale}";
 
             using (HttpResponseMessage res = await ApiController.ApiClient.GetAsync(url))
             {

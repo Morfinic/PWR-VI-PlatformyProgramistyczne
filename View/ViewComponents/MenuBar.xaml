@@ -8,7 +8,9 @@
              d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="585" d:DesignWidth="220"
-             Background="Black" >
+             Background="Black" 
+             BorderBrush="Black"
+             BorderThickness="0 0 1 0">
     <Grid>
         <Rectangle 
             Fill="MediumPurple"/>

@@ -1,4 +1,5 @@
-﻿using PWR_VI_PodPro.Core.API.Models;
+﻿using PWR_VI_PodPro.Core.API.Calls;
+using PWR_VI_PodPro.Core.API.Models;
 using PWR_VI_PodPro.Core.MongoDB.DB;
 using System.Diagnostics;
 using System.Windows;
@@ -54,28 +55,28 @@ namespace PWR_VI_PodPro.View.Components
 
             SteamLink.Click += (s, e) => Process.Start(new ProcessStartInfo("https://store.steampowered.com/app/" + deal.steamAppID) { UseShellExecute = true });
 
+            TextBlock popupText = new()
+            {
+                Foreground = Brushes.White,
+                Background = Brushes.BlueViolet,
+                Padding = new Thickness(5),
+                FontSize = 20,
+            };
+            Popup popup = new()
+            {
+                Child = popupText,
+                Placement = PlacementMode.Mouse,
+            };
+
             if (!fromLikes)
             {
-                TextBlock popupText = new()
-                {
-                    Text = "Added to watchlist!",
-                    Foreground = Brushes.White,
-                    Background = Brushes.BlueViolet,
-                    Padding = new Thickness(5),
-                    FontSize = 20,
-                };
-                Popup popup = new()
-                {
-                    Child = popupText,
-                    Placement = PlacementMode.Mouse,
-                };
-
                 FavBtn.Click += (s, e) =>
                 {
                     DB.AddLike(deal.steamAppID);
+                    popupText.Text = "Added to watchlist!";
                     popup.IsOpen = true;
 
-                    Task.Delay(2000).ContinueWith(_ =>
+                    Task.Delay(1000).ContinueWith(_ =>
                     {
                         Dispatcher.Invoke(() => popup.IsOpen = false);
                     });
@@ -87,6 +88,30 @@ namespace PWR_VI_PodPro.View.Components
             {
                 FavBtn.Content = "Remove";
             }
+
+            NotifyBtn.Click += async (s, e) =>
+            {
+                PriceInput priceInput = new()
+                {
+                    Owner = Window.GetWindow(this),
+                };
+                priceInput.ShowDialog();
+                string price = priceInput.price;
+
+                if (!priceInput.Success)
+                {
+                    return;
+                }
+
+                await AlertController.EditAlert(deal.gameID, price);
+                popupText.Text = "Notification set!";
+                popup.IsOpen = true;
+
+                await Task.Delay(1000).ContinueWith(_ =>
+                {
+                    Dispatcher.Invoke(() => popup.IsOpen = false);
+                });
+            };
         }
     }
 }
