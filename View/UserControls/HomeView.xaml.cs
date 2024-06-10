@@ -15,6 +15,9 @@ namespace PWR_VI_PodPro.View.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Funkcja tworząca obiekty Deal na podstawie pobranych danych z API i dodająca je do StackPanela
+        /// </summary>
         private async void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             var ll = await DealController.Get3A();
@@ -26,6 +29,9 @@ namespace PWR_VI_PodPro.View.UserControls
             }
         }
 
+        /// <summary>
+        /// Funkcja czyszcząca StackPanel z Dealami po opuszczeniu kontrolki
+        /// </summary>
         private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e)
         {
             DailyDealsSP.Children.Clear();

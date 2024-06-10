@@ -11,7 +11,8 @@ using System.Windows.Media.Imaging;
 namespace PWR_VI_PodPro.View.Components
 {
     /// <summary>
-    /// Interaction logic for Deal.xaml
+    /// Interaction logic for Deal.xaml.
+    /// Podczas inicjalizacji tworzony komponent wyświetlający pojedynczą ofertę.
     /// </summary>
     public partial class Deal : UserControl
     {

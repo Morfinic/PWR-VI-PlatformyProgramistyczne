@@ -18,6 +18,12 @@ namespace PWR_VI_PodPro
             LoggedUser.InitUser();
         }
 
+        /// <summary>
+        /// Funkcja wywoływana przy załadowaniu okna,
+        /// służy do sprawdzenia czy użytkownik jest zalogowany.
+        /// Jeśli tak, wczytuje dane z bazy danych.
+        /// Jeśli nie, wyświetla okno do wprowadzenia e-maila, a następnie dodaje użytkownika do bazy danych.
+        /// </summary>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             if (DB.checkLoggedUser())

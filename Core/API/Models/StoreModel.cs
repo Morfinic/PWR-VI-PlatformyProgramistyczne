@@ -1,5 +1,8 @@
 ﻿namespace PWR_VI_PodPro.Core.API.Models
 {
+    /// <summary>
+    /// Model dla statusu sklepu
+    /// </summary>
     class StoreModel
     {
         public string storeID { get; set; }

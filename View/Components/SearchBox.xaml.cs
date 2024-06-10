@@ -13,6 +13,9 @@ namespace PWR_VI_PodPro.View.Components
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Funkcja określająca widzoczność placeholdera w zależności od wprowadzonych danych
+        /// </summary>
         private void SearchInput_TextChanged(object sender, TextChangedEventArgs e)
         {
             if(String.IsNullOrEmpty(SearchInput.Text))

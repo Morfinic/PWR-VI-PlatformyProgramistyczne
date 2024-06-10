@@ -6,6 +6,9 @@ namespace PWR_VI_PodPro.Core
     {
         public static HttpClient? ApiClient { get; set; } = null;
 
+        /// <summary>
+        /// Funkcja inicjalizująca klienta API
+        /// </summary>
         public static void InitializeClient()
         {
             ApiClient = new HttpClient();

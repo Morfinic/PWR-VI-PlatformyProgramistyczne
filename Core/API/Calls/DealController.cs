@@ -5,8 +5,18 @@ using System.Net.Http;
 
 namespace PWR_VI_PodPro.Core.API.Calls
 {
+    /// <summary>
+    /// Klasa odpowiedzialna za wywoływanie zapytań związanych z ofertami.
+    /// </summary>
     class DealController
     {
+        /// <summary>
+        /// Funkcja odpowiedzialna za pobranie 3 ofert z gier kategorii AAA.
+        /// </summary>
+        /// <returns>Trzy gry z kategori AAA</returns>
+        /// <exception cref="Exception">
+        ///     Wyjątek w przypadku niepowodzenia pobrania ofert.
+        /// </exception>
         public static async Task<List<DealModel>> Get3A()
         {
             string url = $"https://www.cheapshark.com/api/1.0/deals?storeID=1&AAA=1&onSale=1";
@@ -27,6 +37,21 @@ namespace PWR_VI_PodPro.Core.API.Calls
             }
         }
 
+        /// <summary>
+        /// Funkcja odpowiedzialna za pobranie ofert gier.
+        /// </summary>
+        /// <param name="SearchName">
+        ///     Opconalny parametr, nazwa gry do wyszukania.
+        /// </param>
+        /// <param name="onSale">
+        ///     Opconalny parametr, określający czy gra jest w promocji.
+        /// </param>
+        /// <returns>
+        ///     Listę ofert gier zapisanych w modelu DealModel.
+        /// </returns>
+        /// <exception cref="Exception">
+        ///     Wyjątek w przypadku niepowodzenia pobrania ofert.
+        /// </exception>
         public static async Task<List<DealModel>> GetDeals(string SearchName = "", string onSale = "1")
         {
             string url = $"https://www.cheapshark.com/api/1.0/deals?storeID=1&title={SearchName}&onSale={onSale}";
@@ -47,6 +72,18 @@ namespace PWR_VI_PodPro.Core.API.Calls
             }
         }
 
+        /// <summary>
+        /// Funkcja odpowiedzialna za pobranie oferty gry na podstawie jej SteamAppID.
+        /// </summary>
+        /// <param name="steamApp">
+        ///     Parametr określający SteamAppID gry.
+        /// </param>
+        /// <returns>
+        ///     Obiekt DealModel z danymi oferty.
+        /// </returns>
+        /// <exception cref="Exception">
+        ///     Wyjątek w przypadku niepowodzenia pobrania oferty.
+        /// </exception>
         public static async Task<DealModel> GetDealBySteamAppId(string steamApp = "")
         {
             string url = $"https://www.cheapshark.com/api/1.0/deals?storeID=1&steamAppID={steamApp}";

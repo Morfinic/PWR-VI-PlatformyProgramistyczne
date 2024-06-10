@@ -18,6 +18,9 @@ namespace PWR_VI_PodPro.View.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Funkcja obsługująca przycisk zmiany maila
+        /// </summary>
         private void UpdateEmail_Click(object sender, RoutedEventArgs e)
         {
             EmailInputWindow inputWindow = new("Update email:")
@@ -36,6 +39,9 @@ namespace PWR_VI_PodPro.View.UserControls
             }
         }
 
+        /// <summary>
+        /// Funkcja obsługująca pytanie o wysłanie maila do zarządzania alertami
+        /// </summary>
         private async void ManAlertbtn_Click(object sender, RoutedEventArgs e)
         {
             string res = await AlertController.SendManageEmail();

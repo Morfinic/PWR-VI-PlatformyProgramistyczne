@@ -19,11 +19,19 @@ namespace PWR_VI_PodPro.Core
             this.canExecute = canExecute;
         }
 
+        /// <summary>
+        /// Funkcja sprawdzająca czy można wykonać polecenie
+        /// </summary>
+        /// <param name="parameter">Obiekt do sprawdzenia</param>
+        /// <returns>Bool: czy można wykonać polecenie</returns>
         public bool CanExecute(object parameter)
         {
             return this.canExecute == null || this.canExecute(parameter);
         }
 
+        /// <summary>
+        /// Funkcja wykonanująca polecenia
+        /// </summary>
         public void Execute(object parameter)
         {
             this.execute(parameter);

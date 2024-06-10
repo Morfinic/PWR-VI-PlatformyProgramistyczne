@@ -24,6 +24,9 @@ namespace PWR_VI_PodPro.View.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Funkcja ładuj dane do listy po załadowaniu kontrolki
+        /// </summary>
         private async void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             var ll = await DealController.GetDeals();
@@ -35,11 +38,17 @@ namespace PWR_VI_PodPro.View.UserControls
             }
         }
 
+        /// <summary>
+        /// Fukcja czyszcząca listę po wyjściu z kontrolki
+        /// </summary>
         private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e)
         {
             _deals.Clear();
         }
 
+        /// <summary>
+        /// Funkcja wyszukująca oferty na podstawie wpisanego tekstu
+        /// </summary>
         private async void SearchBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             var SearchName = SearchBox.SearchInput.Text;

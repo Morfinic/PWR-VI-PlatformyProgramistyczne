@@ -15,6 +15,9 @@ namespace PWR_VI_PodPro.View.ViewComponents
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Funkcja ustawiająca kolory kropek w zależności od statusu API i sklepu
+        /// </summary>
         private async void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             if(ApiController.ApiClient == null)

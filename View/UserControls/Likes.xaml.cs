@@ -26,6 +26,10 @@ namespace PWR_VI_PodPro.View.UserControls
             InitializeComponent();
         }
 
+
+        /// <summary>
+        /// Funkcja tworząca obiekty Deal na podstawie pobranych danych z API i dodająca je do listy
+        /// </summary>
         private async void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             var ll = DB.GetLikes();
@@ -44,6 +48,9 @@ namespace PWR_VI_PodPro.View.UserControls
             }
         }
 
+        /// <summary>
+        /// Funkcja czyszcząca listę z Dealami po opuszczeniu kontrolki
+        /// </summary>
         private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e)
         {
             _likes.Clear();

@@ -1,5 +1,8 @@
 ﻿namespace PWR_VI_PodPro.Core.API.Models
 {
+    /// <summary>
+    /// Model dla oferty (Deal)
+    /// </summary>
     public class DealModel
     {
         public string title { get; set; }

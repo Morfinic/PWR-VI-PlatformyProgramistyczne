@@ -13,6 +13,9 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
         public static IMongoCollection<UsersModel> UsersColl { get; set; }
         public static IMongoCollection<LikesModel> LikesColl { get; set; }
 
+        /// <summary>
+        /// Funkcja inicjalizująca połączenie z bazą danych MongoDB oraz pobierająca kolekcje
+        /// </summary>
         public static void InitializeConn()
         {
             CnnString = System.Configuration.ConfigurationManager.ConnectionStrings["MongoDbUrl"].ConnectionString;
@@ -26,6 +29,13 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
             LikesColl = DbName.GetCollection<LikesModel>("Likes");
         }
 
+        /// <summary>
+        /// Funkcja sprawdzająca czy użytkownik jest "zalogowany"
+        /// </summary>
+        /// <returns>
+        ///     True - użytkownik nie jest zalogowany
+        ///     False - użytkownik jest zalogowany
+        /// </returns>
         public static bool checkLoggedUser()
         {
             var user = UsersColl.Find(x => x.DeviceId == LoggedUser.DeviceId).FirstOrDefault();
@@ -34,6 +44,9 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
             return false;
         }
 
+        /// <summary>
+        /// Funkcja dodająca użytkownika do bazy danych
+        /// </summary>
         public static void AddUser()
         {
             UsersColl.InsertOne(new UsersModel
@@ -43,6 +56,9 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
             });
         }
 
+        /// <summary>
+        /// Funkcja wczytująca dane użytkownika z bazy danych i przypisujaca je do obiektu LoggedUser
+        /// </summary>
         public static void LoadUser()
         {
             var user = UsersColl.Find(x => x.DeviceId == LoggedUser.DeviceId).FirstOrDefault();
@@ -52,6 +68,9 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
             }
         }
 
+        /// <summary>
+        /// Funkcja aktualizująca dane użytkownika w bazie danych
+        /// </summary>
         public static void UpdateUser()
         {
             var filter = Builders<UsersModel>.Filter.Eq("DeviceId", LoggedUser.DeviceId);
@@ -59,6 +78,12 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
             UsersColl.UpdateOne(filter, update);
         }
 
+        /// <summary>
+        /// Funkcja dodająca produkt do listy ulubionych dla aktualnie zalogowanego użytkownika
+        /// </summary>
+        /// <param name="appId">
+        ///     Id produktu, który ma zostać dodany do listy ulubionych
+        /// </param>
         public static void AddLike(string appId)
         {
             var app = LikesColl.Find(x => x.AppId == appId).FirstOrDefault();
@@ -71,6 +96,12 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
             });
         }
 
+        /// <summary>
+        /// Funkcja usuwająca produkt z listy ulubionych dla aktualnie zalogowanego użytkownika
+        /// </summary>
+        /// <param name="appId">
+        ///     Id produktu, który ma zostać usunięty z listy ulubionych
+        /// </param>
         public static void RemoveLike(string appId)
         {
             LikesColl.DeleteOne(x => x.AppId == appId);
