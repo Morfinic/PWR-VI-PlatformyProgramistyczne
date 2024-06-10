@@ -6,6 +6,9 @@ using System.Windows;
 
 namespace PWR_VI_PodPro.Core.MongoDB.DB
 {
+    /// <summary>
+    /// Logika połączenia z bazą danych MongoDB
+    /// </summary>
     public class DB
     {
         public static string CnnString { get; set; }

@@ -2,6 +2,9 @@
 
 namespace PWR_VI_PodPro.Core
 {
+    /// <summary>
+    /// Logika połączenia z API
+    /// </summary>
     class ApiController
     {
         public static HttpClient? ApiClient { get; set; } = null;

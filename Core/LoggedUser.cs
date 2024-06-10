@@ -2,6 +2,9 @@
 
 namespace PWR_VI_PodPro.Core
 {
+    /// <summary>
+    /// Logika zalogowanego użytkownika
+    /// </summary>
     public class LoggedUser
     {
         public static string DeviceId { get; set; }
