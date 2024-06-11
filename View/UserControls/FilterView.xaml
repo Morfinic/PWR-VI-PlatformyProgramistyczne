@@ -6,10 +6,37 @@
              xmlns:local="clr-namespace:PWR_VI_PodPro.View.UserControls"
              mc:Ignorable="d"  
              d:DesignHeight="585" d:DesignWidth="880"
-             Background="Blue">
+             Background="MediumPurple"
+             Loaded="UserControl_Loaded"
+             Unloaded="UserControl_Unloaded">
     <Grid>
-        <TextBlock 
-            Text="3"
-            FontSize="126" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel
+            Orientation="Horizontal"
+            Grid.Row="0"
+            Margin="1">
+            <ComboBox 
+                Width="250"
+                Margin="5"
+                ItemsSource="{Binding filterData}"
+                SelectionChanged="ComboBox_SelectionChanged"/>
+            <Button 
+                Content="Add"
+                Margin="10"
+                Width="50"
+                Click="Button_Click"/>
+        </StackPanel>
+
+        <ListBox 
+            Grid.Row="1"
+            Background="Transparent"
+            Padding="2"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.CanContentScroll="False"
+            ItemsSource="{Binding Deals}"/>
     </Grid>
 </UserControl>

@@ -15,6 +15,7 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
         public static IMongoDatabase DbName { get; set; }
         public static IMongoCollection<UsersModel> UsersColl { get; set; }
         public static IMongoCollection<LikesModel> LikesColl { get; set; }
+        public static IMongoCollection<FilterModel> FilterColl { get; set; }
 
         /// <summary>
         /// Funkcja inicjalizująca połączenie z bazą danych MongoDB oraz pobierająca kolekcje
