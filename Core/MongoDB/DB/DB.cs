@@ -1,6 +1,8 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using PWR_VI_PodPro.Core.MongoDB.Models;
 using PWR_VI_PodPro.View.Components;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 
@@ -31,6 +33,7 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
             DbName = client.GetDatabase("GameSales");
             UsersColl = DbName.GetCollection<UsersModel>("Users");
             LikesColl = DbName.GetCollection<LikesModel>("Likes");
+            FilterColl = DbName.GetCollection<FilterModel>("Filter");
         }
 
         /// <summary>
@@ -115,6 +118,37 @@ namespace PWR_VI_PodPro.Core.MongoDB.DB
         {
             var likes = LikesColl.Find(x => x.DeviceId == LoggedUser.DeviceId).ToList();
             return likes;
+        }
+
+        public static void AddFilter(filterObj filter)
+        {
+            FilterColl.InsertOne(new FilterModel
+            {
+                deviceId = LoggedUser.DeviceId,
+                filterName = filter.filterName,
+                lowerPrice = filter.lowerPrice,
+                upperPrice = filter.upperPrice,
+                title = filter.title,
+                AAA = filter.AAA,
+                metacritic = filter.metacritic
+            });
+        }
+
+        public static List<FilterModel> GetUserFilter()
+        {
+            var filters = FilterColl.Find(x => x.deviceId == LoggedUser.DeviceId).ToList();
+            return filters;
+        }
+
+        public static FilterModel GetRecentFilter()
+        {
+            var filter = FilterColl.Find(x => x.deviceId == LoggedUser.DeviceId).SortByDescending(x => x._id).FirstOrDefault();
+            return filter;
+        }
+
+        public static void RemoveFilter(BsonObjectId id)
+        {
+            FilterColl.DeleteOne(x => x._id == id);
         }
     }
 }

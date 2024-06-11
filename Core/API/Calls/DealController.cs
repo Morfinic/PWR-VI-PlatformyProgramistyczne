@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PWR_VI_PodPro.Core.API.Models;
+using PWR_VI_PodPro.Core.MongoDB.Models;
 using System.Diagnostics;
 using System.Net.Http;
 
@@ -93,11 +94,44 @@ namespace PWR_VI_PodPro.Core.API.Calls
                 if (res.IsSuccessStatusCode)
                 {
                     var deals = await res.Content.ReadAsStringAsync();
-                    Trace.WriteLine(deals);
 
                     List<DealModel> ret = JsonConvert.DeserializeObject<List<DealModel>>(deals);
 
                     return ret[0];
+                }
+                else
+                {
+                    throw new Exception(res.ReasonPhrase);
+                }
+            }
+        }
+
+        public static async Task<List<DealModel>> GetDealByQuery(FilterModel filter)
+        {
+            Trace.WriteLine(filter.title);
+
+            string url = "https://www.cheapshark.com/api/1.0/deals?storeID=1" +
+                $"&title={filter.title}" +
+                $"&AAA={filter.AAA}";
+
+            if (!string.IsNullOrWhiteSpace(filter.lowerPrice))
+                url += $"&lowerPrice={filter.lowerPrice}";
+            if (!string.IsNullOrWhiteSpace(filter.upperPrice))
+                url += $"&upperPrice={filter.upperPrice}";
+            if (!string.IsNullOrWhiteSpace(filter.metacritic))
+                url += $"&metacritic={filter.metacritic}";
+
+            Trace.WriteLine(url);
+
+            using (HttpResponseMessage res = await ApiController.ApiClient.GetAsync(url))
+            {
+                if (res.IsSuccessStatusCode)
+                {
+                    var deals = await res.Content.ReadAsStringAsync();
+
+                    List<DealModel> ret = JsonConvert.DeserializeObject<List<DealModel>>(deals);
+
+                    return ret;
                 }
                 else
                 {
