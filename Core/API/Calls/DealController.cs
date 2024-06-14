@@ -106,6 +106,18 @@ namespace PWR_VI_PodPro.Core.API.Calls
             }
         }
 
+        /// <summary>
+        /// Funkcja odpowiedzialna za pobranie ofert gier na podstawie filtrów użytkownika.
+        /// </summary>
+        /// <param name="filter">
+        ///     Nazwa filtra, który ma zostać zastosowany.
+        /// </param>
+        /// <returns>
+        ///     Listę ofert gier zapisanych w modelu DealModel w oparciu o zastosowany filtr.
+        /// </returns>
+        /// <exception cref="Exception">
+        ///     Zwraca wyjątek w przypadku niepowodzenia pobrania ofert.
+        /// </exception>
         public static async Task<List<DealModel>> GetDealByQuery(FilterModel filter)
         {
             Trace.WriteLine(filter.title);

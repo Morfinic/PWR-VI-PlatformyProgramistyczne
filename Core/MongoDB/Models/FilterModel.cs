@@ -2,6 +2,9 @@
 
 namespace PWR_VI_PodPro.Core.MongoDB.Models
 {
+    /// <summary>
+    /// Klasa modelu filtru do bazy danych
+    /// </summary>
     public class FilterModel
     {
         public BsonObjectId _id { get; set; }

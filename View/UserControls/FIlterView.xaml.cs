@@ -36,6 +36,9 @@ namespace PWR_VI_PodPro.View.UserControls
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Funkcja wywoływana po naciśnięciu przycisku "Dodaj filtr", obsługująca formularz dodawania nowego filtra.
+        /// </summary>
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             FilterWindow inputWindow = new()
@@ -50,6 +53,9 @@ namespace PWR_VI_PodPro.View.UserControls
             FilterData.Add(DB.GetRecentFilter());
         }
 
+        /// <summary>
+        /// Wczytywanie danych po załadowaniu kontrolki.
+        /// </summary>
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
             var ll = DB.GetUserFilter();
@@ -59,12 +65,18 @@ namespace PWR_VI_PodPro.View.UserControls
             }
         }
 
+        /// <summary>
+        /// Czyszczenie danych po wyjściu z kontrolki.
+        /// </summary>
         private void UserControl_Unloaded(object sender, System.Windows.RoutedEventArgs e)
         {
             FilterData.Clear();
             Deals.Clear();
         }
 
+        /// <summary>
+        /// Aktualizacja danych po zmianie wybranego filtra.
+        /// </summary>
         private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var idx = FilterBox.SelectedIndex;
@@ -85,6 +97,9 @@ namespace PWR_VI_PodPro.View.UserControls
             }
         }
 
+        /// <summary>
+        /// Usuwanie aktualnie wybranego filtra.
+        /// </summary>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var idx = FilterBox.SelectedIndex;

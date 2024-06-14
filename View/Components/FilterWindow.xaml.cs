@@ -14,6 +14,9 @@ namespace PWR_VI_PodPro.View.Components
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Funkcja odpowiedzialna za zapisanie wypełnionych pól jako Filtr w bazie danych.
+        /// </summary>
         private void ButtonOk_Click(object sender, RoutedEventArgs e)
         {
             DB.AddFilter(new filterObj
@@ -29,6 +32,12 @@ namespace PWR_VI_PodPro.View.Components
             Close();
         }
 
+        /// <summary>
+        /// Metoda sprawdzająca czy wpisana wartość w pole tekstowe jest liczbą.
+        /// </summary>
+        /// <param name="e">
+        ///     Wartość wpisana w pole tekstowe.
+        /// </param>
         private void PriceMinTb_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^0-9]+");
