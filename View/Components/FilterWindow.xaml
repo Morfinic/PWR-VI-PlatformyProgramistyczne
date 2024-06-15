@@ -90,13 +90,24 @@
                 Name="AAA_Chkb"
                 Content="Is AAA title?"
                 Margin="10,8,10,8"/>
-                
-            <Button
-                Name="ButtonOk"
-                Width="60"
-                FontSize="18"
-                Click="ButtonOk_Click"
-                Content="Add" />
+
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center">
+                <Button
+                    Name="ButtonOk"
+                    Width="60"
+                    FontSize="18"
+                    Click="ButtonOk_Click"
+                    Content="Add" />
+                <Button
+                    Name="ButtonCancel"
+                    Width="60"
+                    FontSize="18"
+                    Margin="10,0,0,0"
+                    Click="ButtonCancel_Click"
+                    Content="Cancel" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>

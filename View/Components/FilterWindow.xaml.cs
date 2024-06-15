@@ -9,6 +9,8 @@ namespace PWR_VI_PodPro.View.Components
     /// </summary>
     public partial class FilterWindow : Window
     {
+        public bool _wasCanceled = false;
+
         public FilterWindow()
         {
             InitializeComponent();
@@ -42,6 +44,12 @@ namespace PWR_VI_PodPro.View.Components
         {
             System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void ButtonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            _wasCanceled = true;
+            Close();
         }
     }
 }

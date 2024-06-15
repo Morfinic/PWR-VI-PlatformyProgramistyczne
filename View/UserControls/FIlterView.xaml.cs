@@ -50,6 +50,9 @@ namespace PWR_VI_PodPro.View.UserControls
             inputWindow.ShowDialog();
             this.Effect = null;
 
+            if(inputWindow._wasCanceled)
+                return;
+
             FilterData.Add(DB.GetRecentFilter());
         }
 
